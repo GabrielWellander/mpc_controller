@@ -1,0 +1,27 @@
+<package format ="2">
+<name>mpc_controller</name>
+<version>0.0.9</version>
+<description>
+This package will implement a mpc controller on the blue rov regular configuration. 
+This package contains a path, a mpc controller and a graphing function.
+This package has been built after the instructions at: http://wiki.ros.org/ROS/Tutorials/Creating%20a%20Package%20by%20Hand
+</description>
+<maintainer email="gabwel-6@student.ltu.se">PR-mpccontroller</maintainer>
+<license>BSD</license>
+
+<buildtool_depend>catkin</buildtool_depend>
+<!--- I have no clue on how the dependcies work
+I will work it out with time, hopefully nothing harmful will happen -->
+<build_depend>roscpp</build_depend>
+<build_depend>rospy</build_depend>
+<build_depend>std_msgs</build_depend>
+
+<build_export_depend>roscpp</build_export_depend>
+<build_export_depend>rospy</build_export_depend>
+<build_export_depend>std_msgs</build_export_depend>
+
+<exec_depend>roscpp</exec_depend>
+<exec_depend>rospy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+
+</package>
