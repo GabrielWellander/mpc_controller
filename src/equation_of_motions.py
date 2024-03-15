@@ -62,13 +62,14 @@ class constants:
                          [0, 0, 0, 0, self.I_y, 0],
                          [0, 0, 0, 0, 0, self.I_z]])
         
-        M_a = - np.diag([[self.X_udot, self.Y_vdot, self.Z_wdot, self.K_pdot, self.M_qdot, self.N_rdot]])
+        M_a = - np.diag([self.X_udot, self.Y_vdot, self.Z_wdot, self.K_pdot, self.M_qdot, self.N_rdot])
 
         self.M_matrix = M_rb + M_a
 
         # the linear hydrodynamic damping matrix:
 
-        self.D_linear = - np.diag([[self.X_u, self.Y_v, self.Z_w, self.K_p, self.M_q, self.N_r]])
+        self.D_linear = - np.diag([self.X_u, self.Y_v, self.Z_w, self.K_p, self.M_q, self.N_r])
+
 
 def D_matrix(curr_vel,constants):
     
@@ -81,8 +82,8 @@ def D_matrix(curr_vel,constants):
     D_5 = constants.M_qq * abs(curr_vel[4])
     D_6 = constants.N_rr * abs(curr_vel[5])
 
-    D_nlinear =  - np.diag([[D_1, D_2, D_3, D_4, D_5, D_6]])
-    
+    D_nlinear =  - np.diag([D_1, D_2, D_3, D_4, D_5, D_6])
+
     D_matrix = constants.D_linear + D_nlinear
     
     return D_matrix
@@ -146,11 +147,11 @@ def J_matrix(curr_pos):
 
 
     # Assembling the J_matrix
-    J_mat = np.array([[J1_11, J1_12, J1_13, 0, 0, 0]
-                      [J1_21, J1_22, J2_23, 0, 0, 0]
-                      [J1_31, J1_32, J1_33, 0, 0, 0]
-                      [0, 0, 0, J2_11, J2_12, J2_13]
-                      [0, 0, 0, J2_21, J2_22, J2_23]
+    J_mat = np.array([[J1_11, J1_12, J1_13, 0, 0, 0],
+                      [J1_21, J1_22, J2_23, 0, 0, 0],
+                      [J1_31, J1_32, J1_33, 0, 0, 0],
+                      [0, 0, 0, J2_11, J2_12, J2_13],
+                      [0, 0, 0, J2_21, J2_22, J2_23],
                       [0, 0, 0, J2_31, J2_32, J2_33]])
     
     return J_mat
