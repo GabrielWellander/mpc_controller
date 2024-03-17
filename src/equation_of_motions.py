@@ -156,3 +156,16 @@ def J_matrix(curr_pos):
     
     return J_mat
 
+def G_matrix(const,curr_pos):
+    B = const.m * const.g
+    # the fact that z_b is the only non null value makes the formulation of g easy
+    # the g matrix represents the restorative force on the rov
+    # W and B are here equal
+
+    g_mat = np.array([[0],
+                      [0],
+                      [0],
+                      [- curr_pos[2] * B * np.cos(curr_pos[4]) * np.sin(curr_pos[3])],
+                      [- curr_pos[2] * B * np.sin(curr_pos[4])],
+                      [0]])
+    return g_mat
